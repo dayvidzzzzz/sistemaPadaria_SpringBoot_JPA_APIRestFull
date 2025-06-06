@@ -28,14 +28,18 @@ public class Encomenda {
     @JoinColumn(name = "id_funcionario")
     private Funcionario funcionario;
 
+    @OneToOne(mappedBy = "encomenda")
+    private Pedido pedido;
+
     public Encomenda(){
     }
 
-    public Encomenda(LocalDate data, long valorTotal) {
+    public Encomenda(LocalDate data, long valorTotal, Cliente cliente, Funcionario funcionario, Pedido pedido) {
         this.data = data;
         this.valorTotal = valorTotal;
         this.cliente = cliente;
         this.funcionario = funcionario;
+        this.pedido = pedido;
     }
 
     public int getId() {
@@ -76,5 +80,13 @@ public class Encomenda {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 }

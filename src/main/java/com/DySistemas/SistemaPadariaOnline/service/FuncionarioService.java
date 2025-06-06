@@ -6,10 +6,8 @@ import com.DySistemas.SistemaPadariaOnline.repository.FuncionarioRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class FuncionarioService {

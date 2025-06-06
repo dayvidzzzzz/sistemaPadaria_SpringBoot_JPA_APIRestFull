@@ -31,7 +31,7 @@ public class Cliente {
     public Cliente(){
     }
 
-    public Cliente(String nome, String endereco, String email, String CPF, Set<Encomenda> encomendas) {
+    public Cliente(String nome, String endereco, String email, String CPF) {
         this.nome = nome;
         this.endereco = endereco;
         this.email = email;
