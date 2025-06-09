@@ -7,5 +7,8 @@ public record ItemDto(
         int qtd,
 
         @NotBlank
-        long precoVenda) {
+        long precoVenda,
+
+        @NotBlank
+        int idProduto) {
 }

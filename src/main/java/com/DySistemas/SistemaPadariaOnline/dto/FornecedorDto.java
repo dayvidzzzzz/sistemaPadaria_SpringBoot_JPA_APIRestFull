@@ -2,13 +2,16 @@ package com.DySistemas.SistemaPadariaOnline.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record ProdutoDto(
+public record FornecedorDto(
         @NotBlank
-        long precoCompra,
+        String CPNJ,
 
         @NotBlank
-        String descricao,
+        String rasaoSocial,
 
         @NotBlank
-        int idProduto) {
+        String endereco,
+
+        @NotBlank
+        String telefone) {
 }

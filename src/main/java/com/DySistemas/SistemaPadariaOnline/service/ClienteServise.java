@@ -18,7 +18,7 @@ public class ClienteServise {
     }
 
     @Transactional
-    public Cliente salvar(@RequestBody ClienteDto clienteDto){
+    public Cliente salvar(ClienteDto clienteDto){
         try{
             Cliente cliente = new Cliente();
             cliente.setNome(clienteDto.nome());

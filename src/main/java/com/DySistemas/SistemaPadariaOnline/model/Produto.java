@@ -19,20 +19,21 @@ public class Produto {
     @Column(nullable = false)
     private long precoCompra;
 
-    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
     private Set<Item> items;
 
-    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
-    private Set<Produto> produtos;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_fornecedor")
+    private Fornecedor fornecedor;
 
     public Produto(){
     }
 
-    public Produto(long precoCompra, String descricao) {
+    public Produto(long precoCompra, String descricao, Fornecedor fornecedor) {
         this.precoCompra = precoCompra;
         this.descricao = descricao;
         this.items = new HashSet<>();
-        this.produtos = new HashSet<>();
+        this.fornecedor = fornecedor;
     }
 
     public int getId() {
@@ -67,11 +68,11 @@ public class Produto {
         this.items = items;
     }
 
-    public Set<Produto> getProdutos() {
-        return produtos;
+    public Fornecedor getFornecedor() {
+        return fornecedor;
     }
 
-    public void setProdutos(Set<Produto> produtos) {
-        this.produtos = produtos;
+    public void setFornecedor(Fornecedor fornecedor) {
+        this.fornecedor = fornecedor;
     }
 }

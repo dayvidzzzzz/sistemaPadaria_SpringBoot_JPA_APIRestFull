@@ -2,6 +2,7 @@ package com.DySistemas.SistemaPadariaOnline.service;
 
 import com.DySistemas.SistemaPadariaOnline.dto.ProdutoDto;
 import com.DySistemas.SistemaPadariaOnline.model.Produto;
+import com.DySistemas.SistemaPadariaOnline.repository.FornecedorRepository;
 import com.DySistemas.SistemaPadariaOnline.repository.ProdutoRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +12,12 @@ import org.springframework.stereotype.Service;
 public class ProdutoService {
 
     private final ProdutoRepository produtoRepository;
+    private final FornecedorRepository fornecedorRepository;
 
     @Autowired
-    public ProdutoService(ProdutoRepository produtoRepository) {
+    public ProdutoService(ProdutoRepository produtoRepository, FornecedorRepository fornecedorRepository) {
         this.produtoRepository = produtoRepository;
+        this.fornecedorRepository = fornecedorRepository;
     }
 
     @Transactional
@@ -23,6 +26,7 @@ public class ProdutoService {
             Produto produto = new Produto();
             produto.setDescricao(produtoDto.descricao());
             produto.setPrecoCompra(produtoDto.precoCompra());
+            produto.setFornecedor(fornecedorRepository.findById(produtoDto.idProduto()).get());
             return produto;
         } catch (Exception e) {
             throw new RuntimeException(e);
