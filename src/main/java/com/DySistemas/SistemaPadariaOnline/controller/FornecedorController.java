@@ -18,27 +18,27 @@ public class FornecedorController {
     }
 
     @PostMapping
-    public ResponseEntity<Fornecedor> salvar(@RequestBody FornecedorDto fornecedorDto){
+    public ResponseEntity<Fornecedor> salvarFornecedor(@RequestBody FornecedorDto fornecedorDto){
         return ResponseEntity.
                 status(HttpStatus.CREATED).
                 body(fornecedorService.salvar(fornecedorDto));
     }
 
     @GetMapping("/{Id}")
-    public ResponseEntity<Fornecedor> buscar(@PathVariable int id){
+    public ResponseEntity<Fornecedor> buscarFornecedor(@PathVariable int id){
         return ResponseEntity.
                 status(HttpStatus.FOUND).
                 body(fornecedorService.buscar(id));
     }
 
     @DeleteMapping("/{Id}")
-    public ResponseEntity<Void> excluir(@PathVariable int id){
+    public ResponseEntity<Void> excluirFornecedor(@PathVariable int id){
         fornecedorService.excluir(id);
         return ResponseEntity.status(HttpStatus.GONE).build();
     }
 
     @PatchMapping("/{Id}")
-    public ResponseEntity<Fornecedor> update(@PathVariable int id,
+    public ResponseEntity<Fornecedor> updateFornecedor(@PathVariable int id,
                                              @RequestBody FornecedorDto fornecedorDto){
         return ResponseEntity.
                 status(HttpStatus.UPGRADE_REQUIRED).

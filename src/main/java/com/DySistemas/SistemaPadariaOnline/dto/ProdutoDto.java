@@ -10,5 +10,5 @@ public record ProdutoDto(
         String descricao,
 
         @NotBlank
-        int idProduto) {
+        int idFornecedor) {
 }

@@ -4,6 +4,7 @@ import com.DySistemas.SistemaPadariaOnline.dto.FornecedorDto;
 import com.DySistemas.SistemaPadariaOnline.model.Fornecedor;
 import com.DySistemas.SistemaPadariaOnline.repository.FornecedorRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,6 +12,7 @@ public class FornecedorService {
 
     private final FornecedorRepository fornecedorRepository;
 
+    @Autowired
     public FornecedorService(FornecedorRepository fornecedorRepository) {
         this.fornecedorRepository = fornecedorRepository;
     }
@@ -23,7 +25,7 @@ public class FornecedorService {
             fornecedor.setEndereco(fornecedorDto.endereco());
             fornecedor.setTelefone(fornecedorDto.telefone());
             fornecedor.setRasaoSocial(fornecedorDto.rasaoSocial());
-            return fornecedor;
+            return fornecedorRepository.save(fornecedor);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -50,8 +52,7 @@ public class FornecedorService {
             fornecedor.setEndereco(fornecedorDto.endereco());
             fornecedor.setCPNJ(fornecedorDto.CPNJ());
             fornecedor.setTelefone(fornecedorDto.telefone());
-
-            return fornecedor;
+            return fornecedorRepository.save(fornecedor);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

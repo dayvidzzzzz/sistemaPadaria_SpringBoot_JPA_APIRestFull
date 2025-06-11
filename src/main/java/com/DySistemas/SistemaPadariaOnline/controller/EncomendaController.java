@@ -20,7 +20,7 @@ public class EncomendaController {
     }
 
     @PostMapping
-    public ResponseEntity<Encomenda> salvar(@RequestBody EncomendaDto encomendaDto){
+    public ResponseEntity<Encomenda> salvarEncomenda(@RequestBody EncomendaDto encomendaDto){
         return ResponseEntity.
                 status(HttpStatus.CREATED).
                 body(emcomendaService.
@@ -33,14 +33,14 @@ public class EncomendaController {
     }
 
     @GetMapping("/{Id}")
-    public ResponseEntity<Encomenda> buscar(@PathVariable int id){
+    public ResponseEntity<Encomenda> buscarEncomenda(@PathVariable int id){
         return ResponseEntity.
                 status(HttpStatus.FOUND)
                 .body(emcomendaService.buscar(id));
     }
 
     @DeleteMapping("/{Id}")
-    public ResponseEntity<Void> excluir(@PathVariable int id){
+    public ResponseEntity<Void> excluirEncomenda(@PathVariable int id){
         emcomendaService.excluir(id);
         return ResponseEntity.noContent().build();
     }

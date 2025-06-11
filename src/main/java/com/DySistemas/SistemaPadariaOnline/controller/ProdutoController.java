@@ -18,7 +18,7 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public ResponseEntity<Produto> salvar(@RequestBody ProdutoDto produtoDto){
+    public ResponseEntity<Produto> salvarProduto(@RequestBody ProdutoDto produtoDto){
         return ResponseEntity.
                 status(HttpStatus.CREATED).
                 body(produtoService.
@@ -26,20 +26,20 @@ public class ProdutoController {
     }
 
     @GetMapping("/{Id}")
-    public ResponseEntity<Produto> buscar(@PathVariable int id){
+    public ResponseEntity<Produto> buscarProduto(@PathVariable int id){
         return ResponseEntity.
                 status(HttpStatus.FOUND).
                 body(produtoService.buscar(id));
     }
 
     @DeleteMapping("/{Id}")
-    public ResponseEntity<Void> deletar(@PathVariable int id){
+    public ResponseEntity<Void> excluirProduto(@PathVariable int id){
         produtoService.excluir(id);
         return ResponseEntity.ok().build();
     }
 
     @PatchMapping("/{Id}")
-    public ResponseEntity<Produto> upgrade(@PathVariable int id,
+    public ResponseEntity<Produto> upgradeProduto(@PathVariable int id,
                                            @RequestBody ProdutoDto produtoDto){
         return ResponseEntity.
                 status(HttpStatus.UPGRADE_REQUIRED).

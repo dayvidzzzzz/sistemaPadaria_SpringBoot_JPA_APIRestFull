@@ -18,7 +18,7 @@ public class PedidoController {
     }
 
     @PostMapping
-    public ResponseEntity<Pedido> salva(@RequestBody PedidoDto pedidoDto){
+    public ResponseEntity<Pedido> salvarPedido(@RequestBody PedidoDto pedidoDto){
         return ResponseEntity.
                 status(HttpStatus.CREATED).
                 body(pedidoService.
@@ -26,13 +26,13 @@ public class PedidoController {
     }
 
     @DeleteMapping("/{Id}")
-    public ResponseEntity<Void> excluir(@PathVariable int id){
+    public ResponseEntity<Void> excluirPedido(@PathVariable int id){
         pedidoService.excluir(id);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{Id}")
-    public ResponseEntity<Pedido> buscar(@PathVariable int id){
+    public ResponseEntity<Pedido> buscarPedido(@PathVariable int id){
         return ResponseEntity.
                 status(HttpStatus.FOUND).
                 body(pedidoService.buscar(id));

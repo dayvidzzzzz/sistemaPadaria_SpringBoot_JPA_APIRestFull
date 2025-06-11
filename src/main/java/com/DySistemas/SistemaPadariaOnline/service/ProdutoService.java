@@ -26,7 +26,7 @@ public class ProdutoService {
             Produto produto = new Produto();
             produto.setDescricao(produtoDto.descricao());
             produto.setPrecoCompra(produtoDto.precoCompra());
-            produto.setFornecedor(fornecedorRepository.findById(produtoDto.idProduto()).get());
+            produto.setFornecedor(fornecedorRepository.findById(produtoDto.idFornecedor()).get());
             return produto;
         } catch (Exception e) {
             throw new RuntimeException(e);

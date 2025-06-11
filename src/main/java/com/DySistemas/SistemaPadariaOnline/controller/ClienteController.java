@@ -18,13 +18,13 @@ public class ClienteController {
     }
 
     @PostMapping
-    public ResponseEntity<Cliente> criarCliente(@Valid @RequestBody ClienteDto clienteDto) {
+    public ResponseEntity<Cliente> salvarCliente(@Valid @RequestBody ClienteDto clienteDto) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(clienteService.salvar(clienteDto));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Cliente> buscarPorId(@PathVariable int id) {
+    public ResponseEntity<Cliente> buscarCliente(@PathVariable int id) {
         return ResponseEntity.ok(clienteService.buscarPorId(id));
     }
 
@@ -35,9 +35,9 @@ public class ClienteController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Cliente> atualizarCliente(
+    public ResponseEntity<Cliente> updateCliente(
             @PathVariable int id,
             @Valid @RequestBody ClienteDto clienteDto) {
-        return ResponseEntity.ok(clienteService.updateCliente(id, clienteDto));
+        return ResponseEntity.ok(clienteService.update(id, clienteDto));
     }
 }

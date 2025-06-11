@@ -48,7 +48,7 @@ public class ClienteServise {
     }
 
     @Transactional
-    public Cliente updateCliente(int idCliente, ClienteDto clienteDto){
+    public Cliente update(int idCliente, ClienteDto clienteDto){
         try{
             Cliente cliente = buscarPorId(idCliente);
             cliente.setEndereco(clienteDto.endereco());

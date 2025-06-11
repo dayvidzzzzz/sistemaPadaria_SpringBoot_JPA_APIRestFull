@@ -20,21 +20,21 @@ public class ItemController {
     }
 
     @PostMapping
-    public ResponseEntity<Item> sssalvar(@RequestBody ItemDto itemDto){
+    public ResponseEntity<Item> salvarItem(@RequestBody ItemDto itemDto){
         return ResponseEntity.
                 status(HttpStatus.CREATED).
                 body(itemService.salvar(itemDto));
     }
 
     @GetMapping("/{Id}")
-    public ResponseEntity<Item> buscar(@PathVariable int id){
+    public ResponseEntity<Item> buscarItem(@PathVariable int id){
         return ResponseEntity.
                 status(HttpStatus.FOUND).
                 body(itemService.buscar(id));
     }
 
     @DeleteMapping("/{Id}")
-    public ResponseEntity<Void> excluire(@PathVariable int id){
+    public ResponseEntity<Void> excluirItem(@PathVariable int id){
         itemService.excluir(id);
         return ResponseEntity.status(HttpStatus.GONE).build();
     }
